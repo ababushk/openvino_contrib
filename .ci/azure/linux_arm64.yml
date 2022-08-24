@@ -140,6 +140,12 @@ jobs:
     workingDirectory: $(BUILD_OPENVINO)
     displayName: 'Install dependencies'
 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: 'openvino_aarch64_linux_temp'
+    displayName: 'Publish OpenVINO AArch64 linux package'
+
   - task: CMake@1
     inputs:
       cmakeArgs: >
